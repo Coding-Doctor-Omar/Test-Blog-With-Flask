@@ -53,6 +53,9 @@ def load_user(user_id):
 class Base(DeclarativeBase):
     pass
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_LINK")
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    "pool_pre_ping": True
+}
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
