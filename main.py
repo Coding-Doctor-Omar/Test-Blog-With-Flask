@@ -52,7 +52,7 @@ def load_user(user_id):
 # CREATE DATABASE
 class Base(DeclarativeBase):
     pass
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_LINK")
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
