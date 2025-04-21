@@ -34,7 +34,7 @@ PORT_NUMBER = int(os.environ.get("gmail_smtp_port"))
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get("test_blog_app_secret_key")
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
@@ -52,7 +52,7 @@ def load_user(user_id):
 # CREATE DATABASE
 class Base(DeclarativeBase):
     pass
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI")
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
@@ -317,4 +317,4 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=False, port=5001)
+    app.run(debug=False, port=5001)
