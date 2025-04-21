@@ -52,7 +52,7 @@
             <li>
               <div class="commenterImage">
                 <img
-                  src="{{ comment.comment_author.email | gravatar }}"
+                  src="{{ url_for('static', filename='default-avatar.png' }}"
                 />
               </div>
               <div class="commentText">
